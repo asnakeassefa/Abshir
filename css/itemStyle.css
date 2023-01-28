@@ -1,0 +1,610 @@
+* {
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+
+body {
+    background-color: #FFF;
+}
+ul{
+    list-style-type: none;
+}
+p{
+    line-height: 1.6;
+    font-family: Segoe UI;
+    
+}
+a {
+    color:#FFF;
+    text-decoration: none;
+    line-height: 1.6;
+    font-family: monospace;
+}
+a:hover{
+    color:red;
+}
+
+.content{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+.hero1{
+    background-color: #FFF;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 23;
+    position: relative;
+}
+
+.hero1 .topcar{
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    align-items: center;
+    margin-top: 50px;
+}
+.hero1 .topcar img{
+    width: 80%;
+}
+.hero1 li{
+    display: inline;
+}
+
+.hero1 a{
+    color: #000000;
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 40px;
+    text-transform: uppercase;
+}
+
+.hero1 .car3l::before{
+    content: "";
+    height: 100vh;
+    width: 100%;
+    clip-path:polygon(0% 0%, 100% 50%, 100% 100%, 0% 10%);
+    background-color: #00a5e0;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+} 
+
+.hero1 .topcar h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:60px;
+}
+
+.hero1 .topcar p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 24px;
+}
+
+.cars{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height:max-content;
+}
+
+.cars .cars3{
+    display: flex;
+    width: 100%;
+    height:max-content;
+
+}
+
+.cars .cars3 .car{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;
+    text-align: center;
+    width: 90%;
+    margin: 20px;
+    height:100% !important;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, 
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, 
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, 
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, 
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.cars .cars3 .car img{
+    width: 80%;
+    height: 250px;
+    transition: 1s;
+}
+
+.cars .cars3 .car img:hover {
+    transform: translate(-100px , 30px);
+}
+.cars .cars3 .car h3{
+    font-size: 25px;
+}
+.cars .cars3 .car p{
+    width: 80%;
+    height:20vh;
+}
+
+.cars .cars3 .car button{
+    width: 100px;
+    height: 50px;
+    border-radius: 30px;
+    margin: 20px 0;
+    background-color: #00090D;
+    color: #FFF;
+    cursor: pointer;
+}
+
+
+.herohouse{
+    background-image:linear-gradient(rgba(0,0,0,0.7) , rgba(0,0,0,0.7)),url("../pages/img/house/house6.jpg"); 
+    background-size:cover;
+    background-repeat: no-repeat;
+    margin:30px 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.herohouse li{
+    display: inline;
+}
+.herohouse a{
+    color: #ffffff;
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 40px;
+    text-transform: uppercase;
+}
+
+.herohouse .ha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.herohouse .ha h1{
+    font-size: 60px;
+    color: #FFF;
+    font-weight: bolder;
+}
+.herohouse .ha p{
+    font-size: 30px;
+    color: #FFF;
+    font-weight: lighter;
+}
+
+.houses{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    height: max-content;
+    width: 100%;
+}
+
+.houses .houses3{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    height: max-content;
+}
+
+.houses .houses3 .house{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+    text-align: center;
+    width: 90%;
+    margin:30px 0;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, 
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, 
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, 
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, 
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.houses .houses3 .house img{
+    width: 80%;
+    height: 300px;
+    transition: 1s;
+}
+.houses .houses3 .house img:hover{
+    transform:scale(1.2);
+}
+
+.houses .houses3 .house h3{
+    font-size: 25px;
+    padding-top: 20px;
+}
+
+.houses .houses3 .house p{
+    width: 80%;
+    height: 18vh;
+    padding-top: 30px;
+}
+.houses .houses3 .house button{
+    width: 100px;
+    height: 50px;
+    border-radius: 30px;
+    margin: 20px 0;
+    background-color: #00090D;
+    color: #FFF;
+    cursor: pointer;
+}
+
+
+.officehero{
+    background-image:linear-gradient(rgba(0,0,0,0.7) , rgba(0,0,0,0.7)),url("../pages/img/office/office2.jpg"); 
+    background-size:cover;
+    margin:30px 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.officehero li{
+    display: inline;
+}
+.officehero a{
+    color: #ffffff;
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 40px;
+    text-transform: uppercase;
+}
+
+.officehero .Off{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.officehero .Off h1{
+    font-size: 60px;
+    color: #FFF;
+    font-weight: bolder;
+}
+
+.officehero .Off p{
+    font-size: 30px;
+    color: #FFF;
+    font-weight: lighter;
+}
+
+.offices{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    height: max-content;
+    width: 100%;
+}
+
+.offices .office3{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    height: fit-content;
+}
+
+.offices .office3 .office{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+    text-align: center;
+    width: 90%;
+    margin:30px 0;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, 
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, 
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, 
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, 
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.offices .office3 .office img{
+    width: 80%;
+    height: 300px;
+    transition: 1s;
+}
+.offices .office3 .office img:hover{
+    transform:scale(1.2);
+}
+
+.offices .office3 .office h3{
+    font-size: 25px;
+    padding-top: 20px;
+}
+.offices .office3 .office p{
+    width: 80%;
+    height: 18vh;
+    padding-top: 30px;
+}
+.offices .office3 .office button{
+    width: 100px;
+    height: 50px;
+    border-radius: 30px;
+    margin: 20px 0;
+    background-color: #00090D;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.footer{
+    background-color: #00090D;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #FFF;
+}
+.footer p{
+    font-size: 20px;
+}
+.foot{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    font-size: 20px;
+}
+.foot .center .navfoot a{
+    color: #FFF;
+}
+
+
+.popup{
+    display:none;
+    width: 40%;
+    height: 30vh;
+    position: fixed;
+    top:30vh;
+    background-color: #FFF;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    left: 30vw;
+    z-index:1000000;
+    font-size: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    transition: all 0.2s ease-in-out;
+    color: rgba(100, 214, 115, 0.726);
+    min-width: fit-content;
+}
+
+.popup i{
+    cursor: pointer;
+    position: absolute;
+    right: 4%;
+    top:5%;
+}
+
+.wrap-blur::after{
+    content: "";
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100000;
+}
+
+@media only screen and (min-width:700px){
+.nav i{
+    display: none !important;
+}
+}
+@media only screen and (max-width:700px){
+
+    .nav{
+        position: relative;
+    }
+    .nav ul{
+        width: 100%;
+        position: absolute;
+        left:-12300px;
+        background-color: #000000;
+        height: fit-content;
+        top:70px;
+        text-align: center;
+        z-index: 19000;
+    }
+    .nav ul li{
+        display: block;
+        color: #FFF; 
+    }
+    .nav ul li a{
+        font-size: 20px;
+        color: #FFF;
+    }
+    .nav .links .fas{
+        display: block;
+    }
+
+    #x{
+        display: none;
+    }
+    .hero1{
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        margin: 20px 0;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+
+    .hero1 .car3l::before{
+        content: "";
+        height: 420px;
+        width: 100%;
+        clip-path:polygon(0% 0%, 100% 50%, 100% 100%, 0% 10%);
+        background-color: #00a5e0;
+        z-index: -1;
+    }
+
+    .hero1 ul{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .hero1 ul li{
+        display: block;
+        justify-content: center;
+    }
+
+    .hero1 .topcar img{
+        content: url("img/car/car7.png");
+        width: 100%;
+    }
+
+    .hero1 .topcar h1{
+        font-size: 30px;
+    }
+    .hero1 .topcar p{
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .cars .cars3{
+        display: flex;
+        flex-direction: column;
+    }
+    .cars .cars3 .car{
+        height: max-content;
+    }
+    .cars .cars3 .car p{
+        height: max-content;
+    }
+
+    .car{
+        height: max-content;
+    }
+    .car p{
+        height: max-content;
+    }
+
+    .hero1 .ha{
+        align-items: center;
+        text-align: center;
+    }
+
+    .herohouse{
+    background-image:linear-gradient(rgba(0,0,0,0.7) , rgba(0,0,0,0.7)),url("img/office/office2.jpg"); 
+    background-size:cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    margin: 0;
+    }
+
+    .herohouse .ha h1{
+        font-size: 30px;
+    }
+    .herohouse .ha p{
+        font-size: 20px;
+    }
+    .houses{
+        display: flex;
+        flex-direction: column;
+    }
+    .houses3{
+        display: flex;
+        flex-direction: column;
+    }
+    .houses .houses3 .house{
+        height: max-content;
+    }
+    .houses .houses3 .house p{
+        height: max-content;
+    }
+
+    .officehero{
+    background-image:linear-gradient(rgba(0,0,0,0.7) , rgba(0,0,0,0.7)),url("img/house/house6.jpg"); 
+    background-size:cover;
+    margin:30px 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    }
+
+    .hero1 .Off h1{
+        font-size: 30px;
+        text-align: center;
+    }
+    .hero1 .Off p{
+        font-size: 20px;
+        text-align: center;
+        font-weight: lighter;
+    }
+    .offices{
+        display: flex;
+        flex-direction: column; 
+    }
+
+    .offices .office3 .office{
+        height: max-content;
+    }
+    .offices .office3 .office p{
+        height: max-content;
+    }
+
+    /* for footer */
+    .footer{
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        align-items: center;
+    }
+    .footer p{
+        font-size:25px;
+        padding-bottom:30px;
+    }
+
+    .footer .foot{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer .foot .center{
+        padding-top: 20px;
+    }
+
+    .popup{
+        width: 99vw;
+        height: 50vh;
+        left: 0vw;
+        font-size: 1.9rem;
+    }
+    .popup i fas{
+        position: absolute;
+        right: 0;
+        top:0;
+    }
+}
