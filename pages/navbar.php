@@ -25,6 +25,8 @@
                 <li><a href="index.php">Home</a></li>
                         <li><a href="itemcollection.php">Items</a></li>
                         <li><a href="item.php">Gallary</a></li>
+                        <li><a href="customer_create_post.php"> create Post</a></li>
+                        <li><a href="user_item_collection.php">User Posts</a></li>
                         <li><a href="about.php">About</a></li>
                         <li><a href="contactus.php">Contact</a></li>
                         <?php echo $url; ?>
