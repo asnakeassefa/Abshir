@@ -69,5 +69,4 @@ if (!isset($_SESSION['username'])) {
     echo '</div>';
 }
 
-include "footer.php";
-?>
+

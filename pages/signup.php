@@ -147,9 +147,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    
     function special_chars($value)
     {
-        return htmlspecialchars(stripslashes($value));
-    }
-    $username = special_chars($_REQUEST['username']);
+       <<<<<<< HEAD
+     $error = "";
+     $u = "";
+     $p = "";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+   
+=======
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $error = "";
+>>>>>>> 78793dcb93215f55eafdc0cacd4fbd2aba2d90f7
+name']);
     $email = special_chars($_REQUEST['email']);
     $password = special_chars($_REQUEST['password']);
     $pass = password_hash($password,PASSWORD_DEFAULT);

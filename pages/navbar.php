@@ -27,7 +27,8 @@
                 <li><a href="index.php">Home</a></li>
                         <li><a href="itemcollection.php">Items</a></li>
                         <li><a href="item.php">Gallary</a></li>
-                        <li><a href="about.php">About</a></li>
+
+a href="about.php">About</a></li>
                         <li><a href="contactus.php">Contact</a></li>
                         <?php echo $url; ?>
                 </ul>
