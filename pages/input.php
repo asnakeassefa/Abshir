@@ -1,3 +1,9 @@
+<?php session_start();
+
+if(!isset($_SESSION['admin'])){
+    header("Location: adminlogin.php");
+}
+?>
 
 <?php
 include "connection.php";
@@ -89,7 +95,7 @@ include "connection.php";
 $folder = "image/";
 $target_file = $folder.basename($_FILES["image1"]["name"]);
 // echo $target_file;
-move_uploaded_file($_FILES["image1"]["tmp_name"], $target_file);
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -107,6 +113,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $description = (String)special_chars($_REQUEST['message']);
     // var_dump($description);
     $icon = special_chars($_REQUEST['item']);
+
+    // Allow it for only specific image types
+    // Check if the uploaded file is an image
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    if (!in_array($imageFileType, array("jpg", "jpeg", "png", "gif"))) {
+        echo "Only JPG, JPEG, PNG, and GIF files are allowed.";
+        // You may want to handle this error more gracefully
+        exit();
+    }
+    move_uploaded_file($_FILES["image1"]["tmp_name"], $target_file);
+
 
     // echo $description;
     
