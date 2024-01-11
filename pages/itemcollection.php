@@ -37,7 +37,7 @@ if (!isset($_SESSION['username'])) {
     echo '<label for="minPrice">Min Price:</label>';
     echo '<input type="number" name="minPrice" id="minPrice" value="0" step="0.01">';
     echo '<label for="maxPrice">Max Price:</label>';
-    echo '<input type="number" name="maxPrice" id="maxPrice" value="9999" step="0.01">';
+    echo '<input type="number" name="maxPrice" id="maxPrice" value="100000000" step="0.01">';
     echo '<input type="submit" value="Filter">';
     echo '</form>';
 
