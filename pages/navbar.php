@@ -1,6 +1,8 @@
 
 <?php
-    session_start();
+    if (session_status() == PHP_SESSION_NONE){
+        session_start();
+    }
     require "connection.php";
     if(isset($_SESSION['username'])){
         $url = '<li>'.$_SESSION["username"].'</li>'.'<li><a href = "logout.php?page=user">logout</a></li>';
