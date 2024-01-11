@@ -3,106 +3,70 @@ declare(strict_types=1);
 session_start();
 ?>
 
-<link href="../css/card.css" type="text/css" rel="stylesheet">
-
-
 <style>
-    .filter-form {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
+    /* Add some styling for better appearance */
+    form {
+        margin-top: 20px;
+        text-align: center; 
     }
 
-    .filter-checkbox {
-        margin-right: 10px;
+    label {
+        margin-bottom: 5px;
+        
     }
 
-    .filter-button {
-        background-color: #3498db;
-        color: #fff;
-        border: none;
-        padding: 10px 15px;
-        cursor: pointer;
+    input[type="number"] {
+        width: 80px;
+        padding: 5px;
+        margin-bottom: 10px;
     }
 
-    .filter-button:hover {
-        background-color: #2980b9;
-    }
+    /* Other styles remain unchanged */
 </style>
 
+<link href="../css/card.css" type="text/css" rel="stylesheet">
+
 <?php
-include "connection.php";
-include "navbar.php";
-
-// Check if the form is submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Array to store selected item types
-    $selectedItemTypes = [];
-
-    // Check if car checkbox is selected
-    if (isset($_POST['car']) && $_POST['car'] === 'on') {
-        $selectedItemTypes[] = 'car';
-    }
-
-    // Check if house checkbox is selected
-    if (isset($_POST['house']) && $_POST['house'] === 'on') {
-        $selectedItemTypes[] = 'house';
-    }
-
-    // Check if office checkbox is selected
-    if (isset($_POST['office']) && $_POST['office'] === 'on') {
-        $selectedItemTypes[] = 'office';
-    }
-
-    // Generate SQL query based on selected item types
-    $itemTypeCondition = implode("', '", $selectedItemTypes);
-    $itemTypeCondition = "('" . $itemTypeCondition . "')";
-
-    if (!empty($selectedItemTypes)) {
-        $itemTypeCondition = implode("', '", $selectedItemTypes);
-        $itemTypeCondition = "('" . $itemTypeCondition . "')";
-
-        $get_data = "SELECT item_name, item_type, price, item_description, img_name, sell_type, qty
-                     FROM item
-                     WHERE available > 0 AND item_type IN $itemTypeCondition";
-    } else {
-        // Default query without filtering if no checkboxes are selected
-        $get_data = "SELECT item_name, item_type, price, item_description, img_name, sell_type, qty
-                     FROM item
-                     WHERE available > 0";
-    }
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
 } else {
-    // Default query without filtering
-    $get_data = "SELECT item_name, item_type, price, item_description, img_name, sell_type, qty
-                 FROM item
-                 WHERE available > 0";
+    include "connection.php";
+    include "navbar.php";
+
+    echo '<form method="get" action="">';
+    echo '<label for="minPrice">Min Price:</label>';
+    echo '<input type="number" name="minPrice" id="minPrice" value="0" step="0.01">';
+    echo '<label for="maxPrice">Max Price:</label>';
+    echo '<input type="number" name="maxPrice" id="maxPrice" value="100000000" step="0.01">';
+    echo '<input type="submit" value="Filter">';
+    echo '</form>';
+
+    $get_data = "SELECT item_name, item_type, price, item_description, img_name, sell_type, qty FROM item WHERE available > 0";
+
+    if (isset($_GET['minPrice']) && isset($_GET['maxPrice'])) {
+        $minPrice = (float)$_GET['minPrice'];
+        $maxPrice = (float)$_GET['maxPrice'];
+
+        $get_data .= " AND price BETWEEN $minPrice AND $maxPrice";
+    }
+
+    $car_names = mysqli_query($conn, $get_data);
+
+    echo '<div class="cartwrap">';
+    while ($item = mysqli_fetch_assoc($car_names)) {
+        echo '<div class="cart">
+            <img id="img" src="'.$item["img_name"].'">
+            <h3>'.$item["item_name"].'</h3>
+            <strong>price $'.$item["price"].'</strong>
+            <p>'.$item["item_description"].'</p>
+            <strong> For '.$item["sell_type"].'</strong>';
+        echo 'Quantity '.$item["qty"];
+        echo '<a href="product.php?name='.$item['item_name'].'">
+            <button class="glow-on-hover" onclick="pop()" name="btn">Order Now</button>
+            </a>
+            </div>';
+    }
+    echo '</div>';
 }
 
-$car_names = mysqli_query($conn, $get_data);
 
-// Display checkboxes for filtering
-echo '<form method="post" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">
-      <label class="filter-checkbox"><input type="checkbox" name="car"> Car</label>
-      <label class="filter-checkbox"><input type="checkbox" name="house"> House</label>
-      <label class="filter-checkbox"><input type="checkbox" name="office"> Office</label>
-      <button class="filter-button" type="submit">Filter</button>
-      </form>';
-
-echo '<div class="cartwrap">';
-while ($item = mysqli_fetch_assoc($car_names)) {
-    echo '<div class="cart">
-              <img id="img" src="' . $item["img_name"] . '">
-              <h3>' . $item["item_name"] . '</h3>
-              <strong>price $' . $item["price"] . '</strong>
-              <p>' . $item["item_description"] . '</p>
-              <strong> For ' . $item["sell_type"] . '</strong>';
-    echo 'Quantity ' . $item["qty"];
-    echo '<a href="product.php?name=' . $item['item_name'] . '">
-              <button class="glow-on-hover" onclick="pop()" name="btn">Order Now</button>
-          </a>
-          </div>';
-}
-echo '</div>';
-include "footer.php";
-?>

@@ -1,6 +1,8 @@
 
 <?php
+   if (session_status() == PHP_SESSION_NONE) {
     session_start();
+}
     require "connection.php";
     if(isset($_SESSION['username'])){
         $url = '<li>'.$_SESSION["username"].'</li>'.'<li><a href = "logout.php?page=user">logout</a></li>';
@@ -25,9 +27,8 @@
                 <li><a href="index.php">Home</a></li>
                         <li><a href="itemcollection.php">Items</a></li>
                         <li><a href="item.php">Gallary</a></li>
-                        <li><a href="customer_create_post.php"> create Post</a></li>
-                        <li><a href="user_item_collection.php">User Posts</a></li>
-                        <li><a href="about.php">About</a></li>
+
+a href="about.php">About</a></li>
                         <li><a href="contactus.php">Contact</a></li>
                         <?php echo $url; ?>
                 </ul>

@@ -2,7 +2,7 @@
 <?php
     $servername = "localhost";
     $user = "root";
-    $pass = "Asnake@12";
+    $pass = "";
     $db = "user";
 
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);

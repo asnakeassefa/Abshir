@@ -140,13 +140,14 @@ button{
     </div>
 
     <?php
+      $error = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $username = $_REQUEST['username'];
     $password = $_REQUEST['password'];
 
     $sql = "SELECT * FROM user WHERE username = '$username'";
     $item = mysqli_fetch_assoc(mysqli_query($conn,$sql));
-    $error = "";
+  
     if($item){
         // user exits
         if(password_verify($password,$item["pass"]))
